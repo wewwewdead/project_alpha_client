@@ -24,7 +24,7 @@
 .about-header{
     display: flex;
     flex-direction: column;
-    padding: 0 1rem;
+    padding: 0 2rem;
     margin: 0;
     height: fit-content;
     width: fit-content;
@@ -64,7 +64,7 @@
 .try-bttn{
     width: fit-content;
     height: fit-content;
-    margin: 2rem 1rem 0rem 1rem;
+    margin: 2rem 1rem 0rem 2rem;
     display: flex;
     gap: 0.5rem;
     justify-content: center;
@@ -76,6 +76,7 @@
     letter-spacing: 1px;
     padding: 0.5rem 2rem;
     cursor: pointer;
+    z-index: 999999;
 }
 .try-bttn:hover{
     background-color: #f3f3f3d0;
