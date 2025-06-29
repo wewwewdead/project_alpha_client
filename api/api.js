@@ -1,4 +1,4 @@
-const BASE_URL = import.meta.env.VITE_BACKEND_UR;
+const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
 export const uploadImage = async(body) =>{
     console.log(' api hit!')
