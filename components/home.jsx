@@ -334,8 +334,8 @@ const Home = () =>{
         }
         {rows.length > 0 &&(
             <div ref={tableRef} className="data-grid-container">
-                <h3>CHECK YOUR DATA</h3>
-                <p style={{fontSize:'0.8rem'}}>NOTE: You can edit the table below.</p>
+                <h3 style={{color: 'rgb(255, 255, 255)'}}>CHECK YOUR DATA</h3>
+                <p style={{fontSize:'0.8rem', color: 'rgb(255, 255, 255)'}}>NOTE: You can edit the table below.</p>
                 <DataGrid
                     columns={columns}
                     rows={rows}
