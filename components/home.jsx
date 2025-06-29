@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useRef } from "react";
-// import './home.css';
+import './home.css';
 import NavBar from "./navbar/navbar";
 import { uploadImage } from "../api/api";
 import Footer from "./footer";

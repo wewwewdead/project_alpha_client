@@ -1,4 +1,4 @@
-// import './2ndcontainer.css'
+import './2ndcontainer.css'
 
 const SecondContainer = () =>{
     return(

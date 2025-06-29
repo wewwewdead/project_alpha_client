@@ -1,5 +1,5 @@
 import NavBar from "../navbar/navbar";
-// import './about.css'
+import './about.css'
 import Footer from "../footer";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
