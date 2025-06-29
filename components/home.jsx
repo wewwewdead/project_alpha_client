@@ -302,7 +302,7 @@ const Home = () =>{
                 {isConverting ? 'converting...' : 'Convert'}
             </button>
             {errorMessage && (
-                <p>{errorMessage}</p>
+                <p style={{color: 'rgb(255, 255, 255)'}}>{errorMessage}</p>
             )}
             </motion.form>
 

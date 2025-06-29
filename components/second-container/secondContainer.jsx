@@ -5,7 +5,7 @@ const SecondContainer = () =>{
         <>
         <div className='second-container'>
         <div className="space-1">
-            <h1 className="heading-1">
+            <h1 style={{color: 'rgb(255, 255, 255)'}} className="heading-1">
                 AI for creativity
             </h1>
             
@@ -14,7 +14,7 @@ const SecondContainer = () =>{
             <div className='cards-container'>
                 <div className='cards'>
                     <div className='card-content'>
-                        <h3>Webapp architechture</h3>
+                        <h3 style={{color: 'rgb(255, 255, 255)'}}>Webapp architechture</h3>
                         <p className='content-message'>
                             1. User uploads a scanned or written table image.  
                         </p>
@@ -27,14 +27,14 @@ const SecondContainer = () =>{
 
                 <div className='cards'>
                     <div className='card-content'>
-                        <h3>GRIDAI</h3>
+                        <h3 style={{color: 'rgb(255, 255, 255)'}}>GRIDAI</h3>
                         <p className='content-message'>GRIDAI is your smart table extraction assistant, accurately extracting structured data from diverse table formats, including both crisp printed tables and challenging handwritten ones.</p>
                     </div>
                 </div>
 
                 <div className='cards'>
                     <div className='card-content'>
-                        <h3>Real Problems sovled</h3>
+                        <h3 style={{color: 'rgb(255, 255, 255)'}}>Real Problems sovled</h3>
                         <p className='content-message'>Manual data entry from paper documents, printed tables, or handwritten forms into spreadsheet or excel.</p>
                     </div>
                 </div>

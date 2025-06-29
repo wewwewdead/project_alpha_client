@@ -73,7 +73,7 @@
     width: 100%;
 }
 .cards {
-    padding: 2rem 1rem 0rem 1rem;
+    padding: 0rem 1rem 0rem 1rem;
     display: flex;
     width: 90%;
     height: 400px;
