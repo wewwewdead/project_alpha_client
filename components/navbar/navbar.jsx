@@ -11,7 +11,7 @@ const NavBar = () =>{
     ]
     const handleClickLink = (e, path) =>{
         e.stopPropagation();
-        console.log('clicked')
+        // console.log('clicked')
         navigate(path === '/learnMore' ? '/' : path)
     }
     return(

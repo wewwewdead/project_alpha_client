@@ -1,7 +1,7 @@
 const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
 export const uploadImage = async(body) =>{
-    console.log(' api hit!')
+    // console.log(' api hit!')
     try {
         const response = await fetch(`${BASE_URL || 'http://localhost:8080'}/convert`, {
             method: 'POST',

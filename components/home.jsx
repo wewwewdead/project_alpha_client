@@ -52,11 +52,11 @@ const Home = () =>{
 
             const data = await uploadImage(formdata)
             if(data && data.csvData){
-                console.log(data.csvData)
-                console.log("Type of csvData:", typeof data.csvData);
-                console.log("Is Blob:", data.csvData instanceof Blob);
-                console.log("Is string:", typeof data.csvData === 'string');
-                console.log("csvData preview:", data.csvData.slice(0, 100)); 
+                // console.log(data.csvData)
+                // console.log("Type of csvData:", typeof data.csvData);
+                // console.log("Is Blob:", data.csvData instanceof Blob);
+                // console.log("Is string:", typeof data.csvData === 'string');
+                // console.log("csvData preview:", data.csvData.slice(0, 100)); 
 
                 //convert blob to text
                 const csvData = data.csvData.replace(/^\uFEFF/, '').trim();
@@ -82,10 +82,10 @@ const Home = () =>{
                             cleanedKeysMap[key] = cleanKey
                         })
 
-                        console.log(parsedData)
+                        // console.log(parsedData)
                         const keys = Object.keys(parsedData[0] || {});
 
-                        console.log("Detected Columns:", keys);
+                        // console.log("Detected Columns:", keys);
                         if (keys.length === 0) {
                             setErrorMessage("No valid headers detected in CSV");
                             return;
@@ -112,8 +112,8 @@ const Home = () =>{
                         setColumns(csvColumns);
                         setRows(cleanedRows);
 
-                        console.log("Final columns:", csvColumns);
-                        console.log("Final rows:", cleanedRows);
+                        // console.log("Final columns:", csvColumns);
+                        // console.log("Final rows:", cleanedRows);
 
                     },
                     error: (error) => {
@@ -186,11 +186,11 @@ const Home = () =>{
         const csvString = Papa.unparse(rows);
 
         const blob = new Blob([csvString], {type: 'text/csv;charset=utf-8'});
-        const link = document.createElement("a");
-        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a"); //programmatically create an anchor element
+        const url = URL.createObjectURL(blob); //create a url with the blob object on it
 
-        link.href = url; //set the HTML anchor element to url 
-        link.setAttribute("download", 'data.csv');
+        link.href = url; //set the HTML anchor element href to = url with the object "blob" inside it
+        link.setAttribute("download", 'data.csv'); //setAttribute to download to make it downloadable
         document.body.appendChild(link);
 
         link.click();
@@ -344,7 +344,7 @@ const Home = () =>{
                     }}
                     processRowUpdate={(newRow) =>{
                         const updatedRow = rows.map((row) => 
-                            row.id === newRow.id ? newRow : row
+                            row.id === newRow.id ? newRow : row //it maps all the row.id and if it finds the row.id === to newRow.id then set the newRow to that edited row else remain the old row
                         );
                         setRows(updatedRow);
                         return newRow;
