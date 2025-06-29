@@ -1,0 +1,299 @@
+.home-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 1rem auto;
+    padding: 20px;
+    text-align: center;
+    z-index: 1000;
+}
+.loader-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(21, 21, 21, 0.244);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999;
+    margin: 0;
+    backdrop-filter: blur(7px);
+-webkit-backdrop-filter: blur(5px); /* for Safari support */
+}
+.loader-message-container{
+    color: #010014;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 1rem;
+    cursor: default;
+}
+.upload-logo-container{
+    display: flex;
+    width: fit-content;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+}
+.upload-logo{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    filter: drop-shadow(0 0 6px rgba(173, 216, 255, 0.8))
+          drop-shadow(0 0 12px rgba(173, 216, 255, 0.5))
+          drop-shadow(0 0 20px rgba(173, 216, 255, 0.3));
+    animation: flickerGlow 3s ease-in-out infinite;
+    transition: transform 0.3s ease;
+}
+/*hover zoom for star-like interaction */
+.upload-logo:hover {
+  transform: scale(1.1);
+}
+/* flickering cosmic glow animation */
+@keyframes flickerGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 6px rgba(173, 216, 255, 0.8))
+            drop-shadow(0 0 12px rgba(173, 216, 255, 0.5))
+            drop-shadow(0 0 20px rgba(173, 216, 255, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.9))
+            drop-shadow(0 0 16px rgba(200, 220, 255, 0.7))
+            drop-shadow(0 0 24px rgba(150, 200, 255, 0.5));
+  }
+}
+
+
+.img-preview-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 4rem;
+}
+
+.img-preview {
+  width: 950px;
+  height: auto;
+  border-radius: 10px;
+  position: relative;
+  z-index: 1;
+  box-shadow:
+    0 0 8px rgba(173, 216, 255, 0.3),
+    0 0 16px rgba(173, 216, 255, 0.2),
+    0 0 24px rgba(173, 216, 255, 0.15),
+    0 0 100px rgba(255, 255, 255, 0.125); /* glowing smoke */
+  transition: box-shadow 0.3s ease;
+}
+
+/*animated glowing aura (like subtle space smoke) */
+.img-preview::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border-radius: 20px;
+  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 80%);
+  z-index: -1;
+  filter: blur(20px);
+  animation: pulse-glow 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.05);
+  }
+}
+
+.disable-bttn{
+    cursor: default;
+}
+
+/* Style for react-data-grid */
+.data-grid-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 450px;
+}
+.rdg {
+  min-height: 200px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+.rdg-cell {
+  border: 1px solid #ddd;
+}
+.rdg-header {
+  background-color: #f3f3f3;
+  font-weight: bold;
+}
+.download-bttn-container{
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+
+}
+.footer-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    border-radius: 5px;
+    padding-bottom: 0.5rem;
+}
+.img-preview-close{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    border-radius: 50%;
+    padding: 0.4rem;
+    background-color: rgba(0, 0, 0, 0.734);
+    z-index: 999;
+    left: 950px;
+    top: 20px;
+    cursor: pointer;
+}
+.side-msg{
+  display: flex;
+  margin-top: 5rem;
+  height: fit-content;
+  width: 50%;
+  text-align: left;
+  justify-self: right;
+}
+
+@media (max-width: 450px) {
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 100px;
+    width: 100%;
+    height: 100%;
+}
+  h2{
+    font-size: 1rem;
+  }
+.img-preview-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 4rem;
+  width: fit-content;
+}
+
+.img-preview {
+  width: 350px;
+  height: auto;
+  border-radius: 10px;
+  position: relative;
+  z-index: 1;
+  box-shadow:
+    0 0 8px rgba(173, 216, 255, 0.3),
+    0 0 16px rgba(173, 216, 255, 0.2),
+    0 0 24px rgba(173, 216, 255, 0.15),
+    0 0 100px rgba(255, 255, 255, 0.125); /* glowing smoke */
+  transition: box-shadow 0.3s ease;
+}
+.home-container {
+    position: relative;
+    width: fit-content;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    z-index: 1000;
+}
+.side-msg{
+  display: flex;
+  font-size: 0.8rem;
+  margin-top: 5rem;
+  height: fit-content;
+  width: 50%;
+  text-align: left;
+  justify-self: right;
+}
+.footer-container {
+    display: flex;
+    margin-top: 1rem;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    border-radius: 5px;
+    padding-bottom: 0.5rem;
+}
+
+button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    color: #ffffff; 
+    cursor: pointer;
+    position: relative; /*nNeeded for pseudo-elements */
+    overflow: hidden; /* ensures pseudo-elements stay within bounds */
+    transition: all 0.25s ease;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.4); /* subtle base glow */
+}
+
+
+/* stardust smoke effect using pseudo-element */
+button::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 15px; /* Slightly larger to wrap around button */
+    background: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.3),
+        rgba(255, 215, 0, 0.5), /* goldish stardust tint */
+        rgba(200, 200, 255, 0.4),
+        rgba(255, 255, 255, 0.3),
+    );
+    opacity: 0.7;
+    z-index: -1; /* behind the button */
+    animation: stardust 2.5s infinite ease-in-out;
+    filter: blur(6px);
+}
+
+/* animation for the stardust smoke effect */
+@keyframes stardust {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.7;
+        filter: blur(6px);
+    }
+    50% {
+        transform: translateY(-8px) scale(1.05); /*scale for dynamic feel */
+        opacity: 1; /* peak intensity */
+        filter: blur(10px); /* smoke effect */
+    }
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.7;
+        filter: blur(6px);
+    }
+}
+}

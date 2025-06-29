@@ -1,0 +1,112 @@
+.about-main-container{
+    position: relative;
+    top: 100px;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+.about-page-content{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0rem;
+    height: fit-content;
+}
+.about-page-content p{
+    color: #949494;
+}
+.about-page-content h2{
+    font-family: monospace;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+.about-header{
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+    margin: 0;
+    height: fit-content;
+    width: fit-content;
+}
+.about-header h1{
+    font-size: 4rem;
+    font-weight: 450;
+    margin: 0;
+    padding: 0;
+}
+.header-text {
+    background-image: linear-gradient(90deg, #404040, #ffffff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* essential for proper rendering */
+    color: transparent; /* fallback */
+}
+.arrow-down{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    margin: 5rem 1rem 0rem 1rem;
+}
+.about-cards{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    padding: 0rem 2rem;
+    border-left: 1px solid rgba(0, 0, 0, 0.155);
+    border-right: 1px solid rgba(57, 57, 57, 0.727);
+}
+.about-cards:hover{
+    background: linear-gradient(to bottom, #7e7a9039, transparent);
+}
+
+.try-bttn{
+    width: fit-content;
+    height: fit-content;
+    margin: 2rem 1rem 0rem 1rem;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    background-color: #ffffff;
+    color: #000000;
+    font-weight: 450;
+    letter-spacing: 1px;
+    padding: 0.5rem 2rem;
+    cursor: pointer;
+}
+.try-bttn:hover{
+    background-color: #f3f3f3d0;
+}
+@media (max-width: 450px) {
+.about-page-content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0rem;
+    height: fit-content;
+}
+.about-main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 100px;
+    width: 100%;
+    height: 100%;
+}
+.about-cards{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    padding: 2rem 0rem;
+    border-top: 1px solid rgba(106, 106, 106, 0.67);
+    border-right: none;
+    border-left: none;
+}
+}
