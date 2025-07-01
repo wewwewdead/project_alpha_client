@@ -27,6 +27,7 @@ const Home = () =>{
 
     const fileRef = useRef(null);
     const tableRef = useRef(null);
+    const imgPreviewRef = useRef(null);
 
     const [isConverting, setIsConverting] = useState(false);
     const [showSideMssg, setShowSideMssg] = useState(true);
@@ -163,6 +164,36 @@ const Home = () =>{
         }
     }
 
+    const handleDragOver = (e) =>{
+        e.preventDefault()
+        e.stopPropagation();
+        e.currentTarget.classList.add('drag-over');
+    }
+    const handleDragLeave = (e) =>{
+        e.preventDefault();
+        e.stopPropagation();
+        e.currentTarget.classList.remove('drag-over');
+    }
+
+    const handleDragEnter = (e) =>{
+        e.preventDefault();
+        e.stopPropagation();
+    }
+    
+    const handleDragDrop = (e) =>{
+        e.preventDefault();
+        e.stopPropagation();
+        e.currentTarget.classList.remove('drag-over');
+
+        const files = e.dataTransfer.files; //get the dropped files
+        if(files.length > 0 && fileRef.current){// checking if files exist and checkin if fileref is triggered that references the form container
+            fileRef.current.files = files; //assign the files into the element(input)
+        } 
+        // trigger the onChange event manually
+        const changeEvent = new Event('change', { bubbles: true });
+        fileRef.current.dispatchEvent(changeEvent);
+    }
+
     const closeImgPreview = (e) => {
         e.stopPropagation();
         setRows([])
@@ -249,6 +280,12 @@ const Home = () =>{
         
     },[csvDownload])
 
+    useEffect(() =>{
+        if(imgPreviewRef.current && imagePreview){
+            imgPreviewRef.current.scrollIntoView({behavior: 'smooth'});
+        }
+    },[imagePreview])
+
     return(
         <>
         {/* <Loader className="custom-loader" ref={loaderRef} color="#f11946" height={4}/> */}
@@ -267,9 +304,15 @@ const Home = () =>{
             transition={{duration: 0.5}}
             viewport={{once: true}}
             >
-                Upload your image here!
+                Drop or upload your image below
             </motion.h2>
             <motion.form 
+            id="upload-image-form"
+            onDragOver={handleDragOver}
+            onDragEnd={handleDragEnter}
+            onDragLeave={handleDragLeave}
+            onDrop={handleDragDrop}
+            onClick={(e) => handleClickUpload(e)}
             initial={{opacity: 0}}
             whileInView={{opacity:1}}
             transition={{duration: 2}}
@@ -293,19 +336,16 @@ const Home = () =>{
                     <svg className="upload-logo" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="rgb(255, 255, 255)"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm40-80h480L570-480 450-320l-90-120-120 160Zm-40 80v-560 560Z"/></svg>
                     {/* <img className="upload-logo" src="../src/assets/upload.svg" alt="" /> */}
                 </div>
-
-            <button 
-            type="submit"
-            disabled={isConverting}
-            className={isConverting ? 'disable-bttn' : ''}
-            >
-                {isConverting ? 'converting...' : 'Convert'}
-            </button>
+                <div className="reminder-container">
+                    <p>Supported formats: JPG, PNG AND JPEG</p>
+                </div>
             {errorMessage && (
                 <p style={{color: 'rgb(255, 255, 255)'}}>{errorMessage}</p>
             )}
             </motion.form>
-
+            <div className="data-privacy-container">
+                <p><em>*Your privacy is protected! No data is transmitted or stored.</em></p>
+            </div>
             {showSideMssg && (
             <motion.div
             initial={{opacity: 0, y: 50}}
@@ -322,14 +362,25 @@ const Home = () =>{
             
         </div>
         {imagePreview &&
-        (<div onMouseEnter={() => setShowCloseBttn(true)} onMouseLeave={() => setShowCloseBttn(false)} className="img-preview-container">
+        (<div  onMouseEnter={() => setShowCloseBttn(true)} onMouseLeave={() => setShowCloseBttn(false)} className="img-preview-container">
             {showCloseBttn && (
             <div onClick={(e) => closeImgPreview(e)} className="img-preview-close">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="rgb(255, 255, 255)"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
             </div>
             )}
-            <img className="img-preview" src={imagePreview} alt="" />
+            <div onClick={(e) => closeImgPreview(e)} className="img-preview-close-mobile">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="rgb(255, 255, 255)"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+            </div>
+            <img ref={imgPreviewRef} className="img-preview" src={imagePreview} alt="" />
 
+            <button 
+            form="upload-image-form"
+            type="submit"
+            disabled={isConverting}
+            className={isConverting ? 'disable-bttn' : ''}
+            >
+                {isConverting ? 'converting...' : 'Convert now'}
+            </button>
         </div>)
         }
         {rows.length > 0 &&(

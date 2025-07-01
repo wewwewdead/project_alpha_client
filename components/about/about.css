@@ -76,7 +76,7 @@
     letter-spacing: 1px;
     padding: 0.5rem 2rem;
     cursor: pointer;
-    z-index: 999999;
+    z-index: 101;
 }
 .try-bttn:hover{
     background-color: #f3f3f3d0;

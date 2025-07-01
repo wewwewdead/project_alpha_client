@@ -9,6 +9,25 @@
 .home-container h2{
   color: rgb(255, 255, 255);
 }
+.upload-image-form{
+  border: 1px solid rgba(106, 106, 106, 0.67);
+  border-radius: 15px;
+  padding: 1rem;
+  z-index: 102;
+  background-color: #0a091e;
+  cursor: pointer;
+}
+.upload-image-form:hover{
+  background-color: #0a091e6f;
+}
+.drag-over{
+  background-color: #181727;
+  filter: drop-shadow(0 0 6px rgba(173, 216, 255, 0.8))
+          drop-shadow(0 0 12px rgba(173, 216, 255, 0.5))
+          drop-shadow(0 0 20px rgba(173, 216, 255, 0.3));
+    animation: flickerGlow 3s ease-in-out infinite;
+    transition: transform 0.3s ease;
+}
 .loader-container{
     position: fixed;
     top: 0;
@@ -34,12 +53,38 @@
     padding: 1rem;
     cursor: default;
 }
+.reminder-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  justify-self: center;
+}
+.reminder-container p {
+  color: #949494;
+  font-size: 0.8rem;
+}
+.data-privacy-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+}
+.data-privacy-container p{
+  margin: 1rem 0rem;
+  padding: 0;
+  color: #949494;
+  font-size: 0.8rem;
+}
 .upload-logo-container{
     display: flex;
     width: fit-content;
     justify-self: center;
     justify-content: center;
     align-items: center;
+    padding: 1rem;
 }
 .upload-logo{
     width: 50px;
@@ -73,8 +118,21 @@
 .img-preview-container {
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding-bottom: 4rem;
+  gap: 1rem;
+}
+.img-preview-container button{
+  width: fit-content;
+  height: fit-content;
+  box-shadow:
+    0 0 8px #ffffff,
+    0 0 16px #fff7d2,
+    0 0 24px #927c247a,
+    0 0 100px  #ffffff; /* glowing smoke */
+  transition: box-shadow 0.3s ease;
 }
 
 .img-preview {
@@ -171,6 +229,9 @@
     top: 20px;
     cursor: pointer;
 }
+.img-preview-close-mobile{
+  display: none;
+}
 .side-msg{
   color: rgb(255, 255, 255);
   display: flex;
@@ -182,6 +243,20 @@
 }
 
 @media (max-width: 450px) {
+  .img-preview-close-mobile{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    border-radius: 50%;
+    padding: 0.4rem;
+    background-color: rgba(0, 0, 0, 0.734);
+    z-index: 999;
+    left: 300px;
+    top: 20px;
+    cursor: pointer;
+  }
   .main-container {
     display: flex;
     flex-direction: column;
