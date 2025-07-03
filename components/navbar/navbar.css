@@ -1,7 +1,7 @@
 .navbar-container{
     font-family: monospace; 
     position: fixed;
-    z-index: 9999;
+    z-index: 999;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -35,5 +35,4 @@
     cursor: pointer;
 }
 @media (max-width: 450px) {
-    
 }
